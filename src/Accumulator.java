@@ -1,12 +1,22 @@
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Stack;
 
 public class Accumulator {
     private CalculatorStack stack;
-    private PropertyChangeSupport pcs;
+    private final PropertyChangeSupport pcs;
 
     public Accumulator() {
         this.stack = new CalculatorStack();
+        pcs = new PropertyChangeSupport(this);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.removePropertyChangeListener(listener);
     }
 
     public void push(Double E){
@@ -69,4 +79,6 @@ public class Accumulator {
     public Stack getStack() {
         return stack;
     }
+
+
 }
