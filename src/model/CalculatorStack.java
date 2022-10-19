@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Stack;
 
 public class CalculatorStack extends Stack {
