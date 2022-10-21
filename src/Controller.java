@@ -2,13 +2,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener ;
 
 public class Controller implements java.beans.PropertyChangeListener, java.awt.event.ActionListener, java.awt.event.KeyListener, java.awt.event.WindowListener{
     public Controller() {
     }
 
     @Override
-    public void propertyChange(PropertyChangeEvent evt) {
+    public void propertyChange(PropertyChangeEvent event) {
+        String property = event.getPropertyName();
+        if("stack_accu".equals(property)){
+            /* Si le contrôleur reçoit un event nommé "stack_accu" il sait que c'est un type stack
+            venant de l'accumulateur et va l'afficher sur l'interface*/
+
+        }
 
     }
 
