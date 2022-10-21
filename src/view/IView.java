@@ -1,4 +1,8 @@
 package view;
 
-public class IView {
+public interface IView {
+
+    default void affiche() {
+
+    }
 }
