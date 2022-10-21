@@ -11,7 +11,9 @@ public class Controller implements java.beans.PropertyChangeListener, java.awt.e
     @Override
     public void propertyChange(PropertyChangeEvent event) {
         String property = event.getPropertyName();
-        if("stack".equals(property)){
+        if("stack_accu".equals(property)){
+            /* Si le contrôleur reçoit un event nommé "stack_accu" il sait que c'est un type stack
+            venant de l'accumulateur et va l'afficher sur l'interface*/
 
         }
 
