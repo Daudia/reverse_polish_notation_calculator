@@ -8,11 +8,12 @@ public class Main {
         acc.push(3.0);
         acc.push(5.0);
         acc.push(6.0);
-        acc.drop();
         acc.neg();
         acc.swap();
-        acc.square();
-        acc.div();
+        acc.add();
         System.out.println(acc.getStack().peek());
+        //acc.pcs.addPropertyChangeListener(control);
+
+        System.out.println(acc.getStack());
     }
 }
