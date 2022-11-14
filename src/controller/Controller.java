@@ -5,6 +5,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import model.Accumulator;
+import model.CalculatorStack;
 import view.GUI;
 
 import java.beans.PropertyChangeEvent;
@@ -12,6 +13,7 @@ import java.beans.PropertyChangeListener;
 
 public class Controller extends Application implements PropertyChangeListener, EventHandler{
     private final Accumulator accumulator = new Accumulator();
+    CalculatorStack stack;
 
     @Override
     public void start(Stage primaryStage) {
@@ -32,7 +34,7 @@ public class Controller extends Application implements PropertyChangeListener, E
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.stack = (CalculatorStack) evt.getNewValue();
     }
 
     @Override
