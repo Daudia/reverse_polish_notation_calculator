@@ -1,21 +1,19 @@
 package model;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Stack;
 
 public class Accumulator {
-    private CalculatorStack stack;
-    public final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    private CalculatorStack stack = new CalculatorStack();
+    private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
-    public Accumulator() {
-        this.stack = new CalculatorStack();
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.addPropertyChangeListener(listener);
     }
 
-    public void push(Double E){ // Ajoute une valeur à la pile de la calculatrice
+    public void push(){ // Ajoute une valeur à la pile de la calculatrice
         Stack s= stack;
-        stack.push(E);
         pcs.firePropertyChange("stack_accu",s,this.stack);
     }
 
@@ -82,18 +80,58 @@ public class Accumulator {
         }
     }
 
-    public void square(){ // Effectue la racine carrée de la dernière valeur de la calculatrice
-        if (!stack.isEmpty()){
-            Stack s= stack;
-            stack.push(Math.pow((Double) stack.pop(),2));
-            pcs.firePropertyChange("stack_accu",s,this.stack);
-        }
 
+    public void action (String string){
+        switch(string){
+            case "↪":
+                this.push();
+                break;
+
+            case "+":
+                this.add();
+                break;
+
+            case "-":
+                this.sub();
+                break;
+
+            case "*":
+                this.multi();
+                break;
+
+            case "/":
+                this.div();
+                break;
+
+            case "+/-":
+                this.neg();
+                break;
+
+            case "⤄":
+                this.swap();
+                break;
+
+            case "C":
+                this.clear();
+                break;
+
+            case "⌫":
+                this.drop();
+                break;
+
+            default:
+                // Cas d'un nombre
+                break;
+        }
     }
 
-    public Stack getStack() {
+
+    public CalculatorStack getStack() {
         return stack;
     }
 
+    public String resString() {
+        return stack.get(stack.size()-1).toString();
+    }
 
 }
