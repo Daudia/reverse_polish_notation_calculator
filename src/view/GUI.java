@@ -52,9 +52,9 @@ public class GUI implements IView {
         Label stackMemory1 = new Label(" ");
         stackMemory1.setTextFill(Color.GREY);
         Label stackMemory2 = new Label(" ");
-        stackMemory1.setTextFill(Color.GREY);
+        stackMemory2.setTextFill(Color.GREY);
         Label stackMemory3 = new Label(" ");
-        stackMemory1.setTextFill(Color.GREY);
+        stackMemory3.setTextFill(Color.GREY);
 
         //Add the label to the display box
         displayBox.getChildren().add(stackMemory1);
@@ -103,7 +103,7 @@ public class GUI implements IView {
         operatorButtonConfig(divButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "div");
         operatorButtonConfig(multiButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "multi");
         operatorButtonConfig(minButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "min");
-        operatorButtonConfig(dotButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "dot");
+        operatorButtonConfig(dotButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, ".");
         operatorButtonConfig(negButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "neg");
         operatorButtonConfig(addButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "add");
 
@@ -111,7 +111,7 @@ public class GUI implements IView {
         pushButton.setOnAction(e -> {
             controller.action("push");
             stackMemory2.setText(resultLabel.getText());
-            resultLabel.setText(accumulator.getEcran());
+            resultLabel.setText(accumulator.getResultText());
             stackMemory1.setText(accumulator.getIndexMemoire(2));
             stackMemory2.setText(accumulator.getIndexMemoire(1));
             stackMemory3.setText(accumulator.getIndexMemoire(0));
@@ -147,7 +147,7 @@ public class GUI implements IView {
     private void operatorButtonConfig(Button button, Label resultLabel, Label stackMemory1, Label stackMemory2, Label stackMemory3, String fireString) {
         button.setOnAction(e -> {
             controller.action(fireString);
-            resultLabel.setText(accumulator.getEcran());
+            resultLabel.setText(accumulator.getResultText());
             stackMemory1.setText(accumulator.getIndexMemoire(2));
             stackMemory2.setText(accumulator.getIndexMemoire(1));
             stackMemory3.setText(accumulator.getIndexMemoire(0));
@@ -158,7 +158,7 @@ public class GUI implements IView {
     private void numberButtonConfig(Button button, Label resultLabel) {
         button.setOnAction(e -> {
             controller.action(button.getText());
-            resultLabel.setText(accumulator.getEcran());
+            resultLabel.setText(accumulator.getResultText());
         });
     }
 }

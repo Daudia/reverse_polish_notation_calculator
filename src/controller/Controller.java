@@ -25,6 +25,7 @@ public class Controller extends Application implements PropertyChangeListener, E
 
     }
     public void action(String str) {
+        System.out.println(str);
         accumulator.action(str);
     }
 
