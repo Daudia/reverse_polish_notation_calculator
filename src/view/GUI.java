@@ -29,7 +29,7 @@ public class GUI implements IView {
 
         //Create the box including all the children (buttons and labels) of the window
         VBox overallBox = new VBox();
-        overallBox.setStyle("-fx-font: 40px Arial"); //On définit la police et la taille des écritures
+        overallBox.setStyle("-fx-font: 40px Arial");
 
         //Create the box including the labels which shows the result and the previous numbers
         VBox displayBox = new VBox();
@@ -63,26 +63,26 @@ public class GUI implements IView {
         displayBox.getChildren().add(resultLabel);
 
         //Buttons creation
-        Button pushButton = createButton("↪", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 0, 1);
-        Button swapButton = createButton("⤄", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 1, 1);
-        Button clearButton = createButton("C", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 2, 1);
-        Button backButton = createButton("⌫", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 3, 1);
-        Button sevenButton = createButton("7", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 0, 2);
-        Button eightButton = createButton("8", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 1, 2);
-        Button nineButton = createButton("9", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 2, 2);
-        Button divButton = createButton("/", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 3, 2);
-        Button fourButton = createButton("4", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 0, 3);
-        Button fiveButton = createButton("5", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 1, 3);
-        Button sixButton = createButton("6", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 2, 3);
-        Button multButton = createButton("*", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 3, 3);
-        Button oneButton = createButton("1", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 0, 4);
-        Button twoButton = createButton("2", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 1, 4);
-        Button threeButton = createButton("3", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 2, 4);
-        Button minButton = createButton("-", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 3, 4);
-        Button dotButton = createButton(".", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 0, 5);
-        Button zeroButton = createButton("0", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 1, 5);
-        Button negButton = createButton("+/-", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 2, 5);
-        Button addButton = createButton("+", Color.HOTPINK, Color.DEEPPINK, Color.WHITE, buttonsGrid, 3, 5);
+        Button pushButton = createButton("↪", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 0, 1);
+        Button swapButton = createButton("⤄", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 1, 1);
+        Button clearButton = createButton("C", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 2, 1);
+        Button backButton = createButton("⌫", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 3, 1);
+        Button sevenButton = createButton("7", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 0, 2);
+        Button eightButton = createButton("8", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 1, 2);
+        Button nineButton = createButton("9", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 2, 2);
+        Button divButton = createButton("/", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 3, 2);
+        Button fourButton = createButton("4", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 0, 3);
+        Button fiveButton = createButton("5", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 1, 3);
+        Button sixButton = createButton("6", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 2, 3);
+        Button multiButton = createButton("*", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 3, 3);
+        Button oneButton = createButton("1", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 0, 4);
+        Button twoButton = createButton("2", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 1, 4);
+        Button threeButton = createButton("3", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 2, 4);
+        Button minButton = createButton("-", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 3, 4);
+        Button dotButton = createButton(".", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 0, 5);
+        Button zeroButton = createButton("0", Color.HOTPINK, Color.DEEPPINK, buttonsGrid, 1, 5);
+        Button negButton = createButton("+/-", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 2, 5);
+        Button addButton = createButton("+", Color.DEEPPINK, Color.MEDIUMVIOLETRED, buttonsGrid, 3, 5);
 
         //Number buttons configuration
         numberButtonConfig(zeroButton, resultLabel);
@@ -101,7 +101,7 @@ public class GUI implements IView {
         operatorButtonConfig(clearButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
         operatorButtonConfig(backButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
         operatorButtonConfig(divButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(multButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
+        operatorButtonConfig(multiButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
         operatorButtonConfig(minButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
         operatorButtonConfig(dotButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
         operatorButtonConfig(negButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
@@ -126,11 +126,11 @@ public class GUI implements IView {
     }
 
     //Button overall creation method, avoiding the repetition of many methods for each button. Allow to select the text, the colors, and the grid location
-    private Button createButton(String text, Color colorBackground, Color colorBackgroundClicked, Color colorText, GridPane buttonsGrid, int columnIndex, int rowIndex) {
+    private Button createButton(String text, Color colorBackground, Color colorBackgroundClicked, GridPane buttonsGrid, int columnIndex, int rowIndex) {
         Button newButton = new Button(text);
         newButton.setTextAlignment(TextAlignment.CENTER);
         newButton.setBackground(new Background(new BackgroundFill(colorBackground, new CornerRadii(100), null)));
-        newButton.setTextFill(colorText);
+        newButton.setTextFill(Color.WHITE);
         newButton.setMinWidth(100);
         buttonsGrid.add(newButton, columnIndex, rowIndex);
         //Animation of the button when it interacts with the mouse cursor
