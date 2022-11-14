@@ -5,7 +5,6 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import model.Accumulator;
-import model.CalculatorStack;
 import view.GUI;
 
 import java.beans.PropertyChangeEvent;
@@ -18,9 +17,6 @@ public class Controller extends Application implements PropertyChangeListener, E
     public void start(Stage primaryStage) {
 
         accumulator.addPropertyChangeListener(this);
-
-        CalculatorStack stack = accumulator.getStack();
-        stack.addPropertyChangeListener(this);
 
         GUI window = new GUI(primaryStage, this);
         window.show();
