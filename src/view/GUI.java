@@ -112,9 +112,9 @@ public class GUI implements IView {
             controller.action("push");
             stackMemory2.setText(resultLabel.getText());
             resultLabel.setText(accumulator.getResultText());
-            stackMemory1.setText(accumulator.getIndexMemoire(2));
-            stackMemory2.setText(accumulator.getIndexMemoire(1));
-            stackMemory3.setText(accumulator.getIndexMemoire(0));
+            stackMemory1.setText(accumulator.getMemory(2));
+            stackMemory2.setText(accumulator.getMemory(1));
+            stackMemory3.setText(accumulator.getMemory(0));
         });
 
         Scene scene = new Scene(overallBox);
@@ -148,9 +148,9 @@ public class GUI implements IView {
         button.setOnAction(e -> {
             controller.action(fireString);
             resultLabel.setText(accumulator.getResultText());
-            stackMemory1.setText(accumulator.getIndexMemoire(2));
-            stackMemory2.setText(accumulator.getIndexMemoire(1));
-            stackMemory3.setText(accumulator.getIndexMemoire(0));
+            stackMemory1.setText(accumulator.getMemory(2));
+            stackMemory2.setText(accumulator.getMemory(1));
+            stackMemory3.setText(accumulator.getMemory(0));
         });
     }
 
