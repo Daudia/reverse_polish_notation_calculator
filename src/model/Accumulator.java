@@ -2,10 +2,12 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Accumulator {
     private CalculatorStack stack = new CalculatorStack();
+    private String ecran = "";
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -83,39 +85,39 @@ public class Accumulator {
 
     public void action (String string){
         switch(string){
-            case "↪":
+            case "push":
                 this.push();
                 break;
 
-            case "+":
+            case "add":
                 this.add();
                 break;
 
-            case "-":
+            case "min":
                 this.sub();
                 break;
 
-            case "*":
+            case "multi":
                 this.multi();
                 break;
 
-            case "/":
+            case "div":
                 this.div();
                 break;
 
-            case "+/-":
+            case "neg":
                 this.neg();
                 break;
 
-            case "⤄":
+            case "swap":
                 this.swap();
                 break;
 
-            case "C":
+            case "clear":
                 this.clear();
                 break;
 
-            case "⌫":
+            case "back":
                 this.drop();
                 break;
 
@@ -130,8 +132,30 @@ public class Accumulator {
         return stack;
     }
 
+    public String getIndexMemoire(int n) { //Nous permet de récuperer les valeurs à stocker et afficher dans la pile
+
+        ArrayList<String> liste = new ArrayList();
+        for(int i=0;i<n+1;i++) {
+            if (stack.size()>i) {
+                liste.add(stack.get(stack.size()-1-i).toString());
+            }
+            else {
+                liste.add("");
+            }
+        }
+        return liste.get(n);
+    }
+
+    public String getEcran(){
+        //Permet de faire le lien entre la partie modèle et la partie vue en récupérant
+        //ce qui est stocké dans l'attribut écran
+        return ecran;
+    }
+
     public String resString() {
+        //Pour récupérer le résultat sous forme de String pour l'afficher dans le label
         return stack.get(stack.size()-1).toString();
+        //On récupère le dernier élément
     }
 
 }

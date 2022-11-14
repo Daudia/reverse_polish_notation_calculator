@@ -97,19 +97,19 @@ public class GUI implements IView {
         numberButtonConfig(nineButton, resultLabel);
 
         //Operator buttons configuration
-        operatorButtonConfig(swapButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(clearButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(backButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(divButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(multiButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(minButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(dotButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(negButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
-        operatorButtonConfig(addButton, resultLabel, stackMemory1, stackMemory2, stackMemory3);
+        operatorButtonConfig(swapButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "swap");
+        operatorButtonConfig(clearButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "clear");
+        operatorButtonConfig(backButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "back");
+        operatorButtonConfig(divButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "div");
+        operatorButtonConfig(multiButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "multi");
+        operatorButtonConfig(minButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "min");
+        operatorButtonConfig(dotButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "dot");
+        operatorButtonConfig(negButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "neg");
+        operatorButtonConfig(addButton, resultLabel, stackMemory1, stackMemory2, stackMemory3, "add");
 
         //Push button configuration
         pushButton.setOnAction(e -> {
-            controller.action(pushButton.getText());
+            controller.action("push");
             stackMemory2.setText(resultLabel.getText());
             resultLabel.setText(accumulator.getEcran());
             stackMemory1.setText(accumulator.getIndexMemoire(2));
@@ -144,9 +144,9 @@ public class GUI implements IView {
     }
 
     //Operators configuration method
-    private void operatorButtonConfig(Button button, Label resultLabel, Label stackMemory1, Label stackMemory2, Label stackMemory3) {
+    private void operatorButtonConfig(Button button, Label resultLabel, Label stackMemory1, Label stackMemory2, Label stackMemory3, String fireString) {
         button.setOnAction(e -> {
-            controller.action(button.getText());
+            controller.action(fireString);
             resultLabel.setText(accumulator.getEcran());
             stackMemory1.setText(accumulator.getIndexMemoire(2));
             stackMemory2.setText(accumulator.getIndexMemoire(1));
